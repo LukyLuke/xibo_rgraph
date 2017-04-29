@@ -168,9 +168,6 @@ class RGraph extends \Xibo\Widget\ModuleWidget {
 	 * @Override
 	 */
 	public function validate() {
-		if (!v::url()->notEmpty()->validate(urldecode($this->getOption('uri'))))
-			throw new InvalidArgumentException(__('Please enter a link'));
-
 		if ($this->getUseDuration() == 1 && $this->getDuration() == 0)
 			throw new InvalidArgumentException(__('You must enter a duration.'));
 	}
