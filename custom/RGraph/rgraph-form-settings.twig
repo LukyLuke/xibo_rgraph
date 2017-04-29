@@ -1,0 +1,17 @@
+{#
+/*
+ * Copyright (C) 2017 Lukas Zurschmiede
+ * (${FILE_NAME})
+ */
+#}
+
+{% extends "module-form-settings.twig" %}
+{% import "forms.twig" as forms %}
+
+{% block moduleFormFields %}
+
+    {% set title %}{% trans "Default Colors" %}{% endset %}
+    {% set helpText %}{% trans "Enter all default colors here, separated by a comma. Example: #00f, #0f0, #f00, #0ff, #ff0, #f0f" %}{% endset %}
+    {{ forms.input("defaultColors", title, module.getSetting("defaultColors"), helpText, "", "optional") }}
+
+{% endblock %}

@@ -1,0 +1,7 @@
+{
+  "title": "RGraph Data-Visualization",
+  "author": "Lukas Zurschmiede",
+  "description": "A module to visualize data from JSON or a local Datastore with a Graph.",
+  "name": "rgraph",
+  "class": "Xibo\\Custom\\RGraph\\RGraph"
+} 
