@@ -148,6 +148,7 @@ class RGraph extends \Xibo\Widget\ModuleWidget {
 		$this->setOption('name', $this->getSanitizer()->getString('name'));
 		$this->setUseDuration($this->getSanitizer()->getCheckbox('useDuration'));
 		$this->setDuration($this->getSanitizer()->getInt('duration', $this->getDuration()));
+		$this->setOption('rendering', $this->getSanitizer()->getString('rendering'));
 		$this->setOption('graphType', $this->getSanitizer()->getString('graphType'));
 		$this->setOption('backgroundColor', $this->getSanitizer()->getString('backgroundColor'));
 
@@ -217,54 +218,63 @@ class RGraph extends \Xibo\Widget\ModuleWidget {
 			'previewHeight' => $this->getSanitizer()->getDouble('height', 0),
 			'scaleOverride' => $this->getSanitizer()->getDouble('scale_override', 0),
 		);
+		
+		// Use SVG or Canvas?
+		$svg = $this->getOption('rendering') == 'render_with_svg' ? '.SVG' : '';
 
 		// Head Content contains all needed scrips from RGraph
 		$jsObject = '';
-		$headContent  = '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph.common.core.js') . '"></script>'."\n";
-		$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph.common.dynamic.js') . '"></script>'."\n";
-		$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph.common.csv.js') . '"></script>'."\n";
-		//$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph.common.ajax.js') . '"></script>'."\n";
+		if ($this->getOption('rendering') == 'render_with_svg') {
+			$headContent  = '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph.SVG.common.core.js') . '"></script>'."\n";
+			$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph.SVG.common.ajax.js') . '"></script>'."\n";
+			$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph.SVG.common.fx.js') . '"></script>'."\n";
+		} else {
+			$headContent  = '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph.common.core.js') . '"></script>'."\n";
+			$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph.common.dynamic.js') . '"></script>'."\n";
+			$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph.common.effects.js') . '"></script>'."\n";
+		}
+		
 		switch ($this->getOption('graphType')) {
 			case 'pie_chart':
 				$jsObject = 'RGraph.Pie';
-				$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph.pie.js') . '"></script>';
+				$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph' . $svg . '.pie.js') . '"></script>';
 				break;
 			case 'bar_chart':
 				$jsObject = 'RGraph.Bar';
-				$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph.bar.js') . '"></script>';
+				$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph' . $svg . '.bar.js') . '"></script>';
 				break;
 			case 'horizontal_bar_chart':
 				$jsObject = 'RGraph.HBar';
-				$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph.hbar.js') . '"></script>';
+				$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph' . $svg . '.hbar.js') . '"></script>';
 				break;
 			case 'waterfall_chart':
 				$jsObject = 'RGraph.Waterfall';
-				$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph.waterfall.js') . '"></script>';
+				$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph' . $svg . '.waterfall.js') . '"></script>';
 				break;
 			case 'circular_progress':
 				$jsObject = 'RGraph.SemiCircularProgress';
-				$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph.semicircularprogress.js') . '"></script>';
+				$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph' . $svg . '.semicircularprogress.js') . '"></script>';
 				break;
 			case 'vertical_progress':
 				$jsObject = 'RGraph.Bar';
-				$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph.bar.js') . '"></script>';
+				$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph' . $svg . '.bar.js') . '"></script>';
 				break;
 			case 'horizontal_progress':
 				$jsObject = 'RGraph.HBar';
-				$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph.hbar.js') . '"></script>';
+				$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph' . $svg . '.hbar.js') . '"></script>';
 				break;
 			case 'radar_chart':
 				$jsObject = 'RGraph.Radar';
-				$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph.radar.js') . '"></script>';
+				$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph' . $svg . '.radar.js') . '"></script>';
 				break;
 			case 'scatter_chart':
 				$jsObject = 'RGraph.Scatter';
-				$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph.scatter.js') . '"></script>';
+				$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph' . $svg . '.scatter.js') . '"></script>';
 				break;
 			case 'line_chart':
 			default:
 				$jsObject = 'RGraph.Line';
-				$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph.line.js') . '"></script>';
+				$headContent .= '<script type="text/javascript" src="' . $this->getResourceUrl('vendor/rgraph/RGraph' . $svg . '.line.js') . '"></script>';
 				break;
 		}
 		$headContent .= '<style type="text/css">.graphLegend { position:absolute;display:inline-block;z-index:9999;text-align:left;border: 1px solid #ddd; box-shadow: 1px 1px 2px #ccc;padding:0.5em 0.8em;line-height:1.8em; } .graphLegend div { font-weight:bold; } .legendWrapper { width:100%;top:0;left:0;text-align:center; }</style>';
