@@ -3,7 +3,7 @@
  * RGraph Xibo Module
  * Copyright (C) 2017 Lukas Zurschmiede
  *
- * This file is not part of Xibo, it's a cstom module for it.
+ * This file is not part of Xibo, it's a custom module for it.
  *
  * This Xibo-Module is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -73,67 +73,16 @@ class RGraph extends \Xibo\Widget\ModuleWidget {
 	}
 
 	/**
-	 * Install all Files
+	 * Install all Javascript-Files provided by RGraph
 	 */
 	public function installFiles() {
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.waterfall.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.vprogress.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.thermometer.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.waterfall.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.semicircularprogress.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.scatter.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.radar.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.pie.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.line.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.hbar.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.common.tooltips.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.common.sheets.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.common.fx.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.common.csv.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.common.core.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.common.ajax.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.bar.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.semicircularprogress.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.scatter.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.rscatter.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.rose.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.radar.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.pie.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.odo.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.modaldialog.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.meter.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.line.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.hprogress.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.hbar.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.gauge.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.gantt.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.funnel.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.fuel.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.drawing.yaxis.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.drawing.xaxis.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.drawing.text.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.drawing.rect.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.drawing.poly.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.drawing.marker3.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.drawing.marker2.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.drawing.marker1.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.drawing.image.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.drawing.circle.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.drawing.background.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.common.zoom.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.common.tooltips.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.common.sheets.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.common.resizing.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.common.key.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.common.effects.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.common.dynamic.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.common.deprecated.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.common.csv.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.common.core.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.common.context.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.common.annotate.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.bipolar.js')->save();
-		$this->mediaFactory->createModuleSystemFile(PROJECT_ROOT . '/web/modules/vendor/rgraph/RGraph.bar.js')->save();
+		$sourcePath = PROJECT_ROOT . '/web/modules/vendor/rgraph/';
+		$dir = opendir($sourcePath);
+		while ($dir && ($file = readdir($dir)) !== false) {
+			if (substr($file, -3) == '.js') {
+				$this->mediaFactory->createModuleSystemFile($sourcePath . $file)->save();
+			}
+		}
 	}
 
 	/**
